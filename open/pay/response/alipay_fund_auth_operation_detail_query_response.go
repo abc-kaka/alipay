@@ -2,6 +2,8 @@ package response
 
 // AlipayFundAuthOperationDetailQueryResponse 资金授权操作查询接口-响应
 type AlipayFundAuthOperationDetailQueryResponse struct {
+	Code                    string `json:"code"`
+	Msg                     string `json:"msg"`
 	AuthNo                  string `json:"auth_no"`
 	OutOrderNo              string `json:"out_order_no"`
 	OrderStatus             string `json:"order_status"`

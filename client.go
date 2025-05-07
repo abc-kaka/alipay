@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"github.com/abc-kaka/alipay/common/req"
 	"github.com/abc-kaka/alipay/common/util"
+	"github.com/abc-kaka/alipay/open/pay/request"
+	"github.com/abc-kaka/alipay/open/pay/response"
 	"net/url"
 	"strings"
 )
@@ -62,6 +64,22 @@ func (c *Client) GenerateStr(apiCode string, request req.Request) (str string, r
 	return
 }
 
+func (c *Client) Notify(request request.VerifyNotifyRequest, response *response.NotifyResponse) (err error) {
+	if c.config.AlipayPublicKey == "" {
+		return fmt.Errorf("未配置支付宝公钥")
+	}
+	data, verify, err := util.VerifyNotify(request.Params, c.config.AlipayPublicKey)
+	if !verify {
+		return fmt.Errorf("验签失败")
+	}
+	if err != nil {
+		return
+	}
+
+	err = util.MapToStruct(data, &response)
+	return
+}
+
 //	-------------------------内部实现----------------------
 
 // generateParam 生成参数
@@ -102,16 +120,6 @@ func (c *Client) mapResult(apiCode string, body string, response interface{}) (e
 	if err != nil {
 		return
 	}
-	data, err := c.extractResult(apiCode, result)
-	if err != nil {
-		return
-	}
-	err = util.MapToStruct(data, &response)
-	return
-}
-
-// extractResult 获取请求结果
-func (c *Client) extractResult(apiCode string, result map[string]interface{}) (data map[string]interface{}, err error) {
 	// 获取异常code
 	errResponse, ok := result["error_response"]
 	if ok {
@@ -124,11 +132,14 @@ func (c *Client) extractResult(apiCode string, result map[string]interface{}) (d
 		err = fmt.Errorf("请求结果异常：获取key异常：" + apiCode)
 		return
 	}
+	// 赋值结果
+	data := resultData.(map[string]interface{})
+	err = util.MapToStruct(data, &response)
+	// 获取异常code
 	code, ok := resultData.(map[string]interface{})["code"].(string)
 	if ok && code != "10000" {
 		err = fmt.Errorf(resultData.(map[string]interface{})["sub_msg"].(string))
 		return
 	}
-	data = resultData.(map[string]interface{})
 	return
 }

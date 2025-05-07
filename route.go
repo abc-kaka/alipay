@@ -7,7 +7,7 @@ type Route struct {
 
 type OpenRoute struct {
 	Member *OpenMemberRouter
-	Pay    *MiniPayRouter
+	Pay    *OpenPayRouter
 }
 
 type MiniRoute struct {

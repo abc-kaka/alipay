@@ -1,6 +1,8 @@
 package response
 
 type AlipaySystemOauthTokenResponse struct {
+	Code         string `json:"code"`
+	Msg          string `json:"msg"`
 	UserId       string `json:"user_id"`
 	OpenId       string `json:"open_id"`
 	AccessToken  string `json:"access_token"`

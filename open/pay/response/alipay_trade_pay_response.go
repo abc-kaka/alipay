@@ -2,6 +2,8 @@ package response
 
 // AlipayTradePayResponse 支付宝支付响应
 type AlipayTradePayResponse struct {
+	Code          string         `json:"code"`
+	Msg           string         `json:"msg"`
 	TradeNo       string         `json:"trade_no"`
 	OutTradeNo    string         `json:"out_trade_no"`
 	BuyerLogonId  string         `json:"rest_amount"`

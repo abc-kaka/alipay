@@ -2,6 +2,8 @@ package response
 
 // AlipayFundAuthOrderUnfreezeResponse 资金授权解冻接口
 type AlipayFundAuthOrderUnfreezeResponse struct {
+	Code         string `json:"code"`
+	Msg          string `json:"msg"`
 	AuthNo       string `json:"auth_no"`
 	OperationId  string `json:"operation_id"`
 	OutRequestNo string `json:"out_request_no"`

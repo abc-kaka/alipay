@@ -4,10 +4,11 @@ import "time"
 
 // Config 支付宝配置
 type Config struct {
-	AppId        string // 支付宝分配给开发者的应用ID
-	AppAuthToken string // 授权令牌
-	PrivateKey   string // 私钥
-	PublicKey    string // 公钥
+	AppId           string // 支付宝分配给开发者的应用ID
+	AppAuthToken    string // 授权令牌
+	PrivateKey      string // 私钥
+	PublicKey       string // 公钥
+	AlipayPublicKey string // 支付宝公钥
 
 	ServerUrl string
 	Format    string
