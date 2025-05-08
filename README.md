@@ -1,2 +1,7 @@
 # alipay
-支付宝 AliPay SDK for Go, 集成简单，功能完善，持续更新，支持公钥证书和普通公钥进行签名和验签，支持文件上传和接口内容加密。
+支付宝 AliPay SDK for Go, 集成简单，功能完善，持续更新，支持公钥证书和普通公钥进行签名和验签。
+
+# 安装
+```
+go get github.com/smartwalle/alipay/v3
+```
