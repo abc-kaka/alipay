@@ -18,26 +18,33 @@ import (
 )
 
 func main() {
-	// 获取配置
-	config := alipay.NewConfig()
-	config.AppId = "201407230000xxxx"    // 应用app_id示例
-	config.AppAuthToken = ""    // 授权令牌，非必填，按接口需要
-	config.PrivateKey = "-----BEGIN RSA PRIVATE KEY-----
+	// 支付宝应用私钥示例
+	privateKey := "-----BEGIN RSA PRIVATE KEY-----
 MIIEpAIBAAKCAQEA2KqF5piuUQMQyT0GH0SOBZ+4StulRRpnhnIn8O+LoToEXAMPLE
 MwTxkzm1cwlwGvWJk0HrOM19m1Xe5B9Z5EOYAfMK9Z5c0FxH1+c4XrLKvAxvOgIM
 2+gU3wLLCZWaPPXf1gPoC5a8YcUxX0d9RC0hXSmVtYBEXAMPLEq+yPuM7QIDAQAB
 AoIBAQCJt9K3Oehms+sCZB4xzgx5sH4G5E0jKNqaZ5CJItvGu2OfEXAMPLEBDjk2E
 ...
------END RSA PRIVATE KEY-----"      // 应用私钥
-	config.PublicKey = "-----BEGIN PUBLIC KEY-----
+-----END RSA PRIVATE KEY-----"
+	// 支付宝应用公钥示例
+	publicKey := "-----BEGIN PUBLIC KEY-----
 MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArfI9kA/3L1jEXAMPLEUsnA
 Do0QTr9k8Y9I3Ym3n8+0ZsXKwNus2Re6nlXDPK3Hpg7n4kDzGGP1opFltlyEXAMPLE
 ...
------END PUBLIC KEY-----"       // 应用公钥
-	config.AlipayPublicKey = "-----BEGIN PUBLIC KEY-----
+-----END PUBLIC KEY-----"
+	// 支付宝公钥示例
+	alipayPublicKey := "-----BEGIN PUBLIC KEY-----
 MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAw+EdmJjzpU9fEXAMPLEeXL
 vGJdY6vdcSTzCB3aAcEXAMPLEPU+6o2NxYlEu/fFJK2LyoXrNmB7MEBQIDAQAB
------END PUBLIC KEY-----" // 支付宝公钥，非必填，按接口需要
+-----END PUBLIC KEY-----"
+
+	// 获取配置
+	config := alipay.NewConfig()
+	config.AppId = "201407230000xxxx"    // 应用app_id示例
+	config.AppAuthToken = ""    // 授权令牌，非必填，按接口需要
+	config.PrivateKey = privateKey   // 应用私钥
+	config.PublicKey = publicKey // 应用公钥
+	config.AlipayPublicKey = alipayPublicKey // 支付宝公钥，非必填，按接口需要
 	// 客户端
 	client := alipay.NewClient(config)
 	// 支付宝路由，支付宝api通过这个路由调用
