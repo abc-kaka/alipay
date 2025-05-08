@@ -164,11 +164,11 @@ func NewRoute(client Client) *Route {
 			Pay:    NewOpenPayRouter(client),
 		},
 	}
-}
+}	
 ```
 恭喜你，完成接口的添加！
 # 感谢您的支持
 如果对您有帮助，请作者喝杯咖啡吧！万分感谢！
 
-![支付宝](https://github.com/abc-kaka/source/blob/main/pay/alipay.jpg?raw=true)
-![微信](https://github.com/abc-kaka/source/blob/main/pay/wechatpay.jpg?raw=true)
+![支付宝](https://github.com/abc-kaka/source/blob/main/pay/alipay.jpg?raw=true){width=300px;}
+![微信](https://github.com/abc-kaka/source/blob/main/pay/wechatpay.jpg?raw=true){width=300px;}
