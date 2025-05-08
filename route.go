@@ -17,8 +17,8 @@ type MiniRoute struct {
 func NewRoute(client Client) *Route {
 	return &Route{
 		Open: &OpenRoute{
-			Pay:    NewMiniPayRouter(client),
-			Member: NewH5AppMemberRouter(client),
+			Pay:    NewOpenPayRouter(client),
+			Member: NewOpenMemberRouter(client),
 		},
 		Mini: &MiniRoute{
 			OpenOrder: NewMiniOpenOrderRouter(client),

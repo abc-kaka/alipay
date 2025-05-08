@@ -10,8 +10,8 @@ type OpenMemberRouter struct {
 	client Client
 }
 
-// NewH5AppMemberRouter 创建H5&移动APP - 会员产品 - 路由
-func NewH5AppMemberRouter(client Client) *OpenMemberRouter {
+// NewOpenMemberRouter 创建H5&移动APP - 会员产品 - 路由
+func NewOpenMemberRouter(client Client) *OpenMemberRouter {
 	return &OpenMemberRouter{client: client}
 }
 

@@ -10,8 +10,8 @@ type OpenPayRouter struct {
 	client Client
 }
 
-// NewMiniPayRouter 创建H5&移动APP - 支付产品 - 路由
-func NewMiniPayRouter(client Client) *OpenPayRouter {
+// NewOpenPayRouter 创建H5&移动APP - 支付产品 - 路由
+func NewOpenPayRouter(client Client) *OpenPayRouter {
 	return &OpenPayRouter{client: client}
 }
 
