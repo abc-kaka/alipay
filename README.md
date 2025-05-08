@@ -170,5 +170,5 @@ func NewRoute(client Client) *Route {
 # 感谢您的支持
 如果对您有帮助，请作者喝杯咖啡吧！万分感谢！
 
-![支付宝](https://note.youdao.com/yws/api/image/normal/1644505774761?userId=weixinobU7Vjv5l7n-F3XTOaL8hr3saxAc)
-![微信](https://note.youdao.com/yws/api/image/normal/1644505774761?userId=weixinobU7Vjv5l7n-F3XTOaL8hr3saxAc)
+![支付宝](https://github.com/abc-kaka/source/blob/main/pay/alipay.jpg?raw=true)
+![微信](https://github.com/abc-kaka/source/blob/main/pay/wechatpay.jpg?raw=true)
